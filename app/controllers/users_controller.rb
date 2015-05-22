@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts "user paramssss #{user_params.inspect}"
     @user = User.new(user_params)
     @user.save
     respond_with(@user)
@@ -42,6 +43,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :mobile)
+      params.require(:user).permit(:name, :mobile, :username, :email, :password, :password_confirmation)
     end
 end
